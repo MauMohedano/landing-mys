@@ -1,0 +1,366 @@
+/* ============== VARIABLES Y RESET BÁSICO ============== */
+:root {
+    --color-primario: #005A9C; /* Azul corporativo */
+    --color-secundario: #F2A900; /* Amarillo/Dorado para acentos */
+    --color-fondo: #F8F9FA;
+    --color-texto: #343A40;
+    --color-blanco: #FFFFFF;
+    --fuente-principal: 'Poppins', sans-serif;
+    --fuente-secundaria: 'Roboto', sans-serif;
+    --sombra-suave: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --radio-borde: 8px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fuente-secundaria);
+    color: var(--color-texto);
+    background-color: var(--color-blanco);
+    line-height: 1.6;
+}
+
+/* ============== ESTILOS GENERALES Y UTILIDADES ============== */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 80px 0;
+}
+
+section:nth-of-type(even) {
+    background-color: var(--color-fondo);
+}
+
+h1, h2, h3 {
+    font-family: var(--fuente-principal);
+    font-weight: 700;
+    color: var(--color-primario);
+    margin-bottom: 20px;
+}
+
+h1 { font-size: 2.8rem; line-height: 1.2; }
+h2 { font-size: 2.2rem; text-align: center; }
+h3 { font-size: 1.4rem; color: var(--color-primario); }
+
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: var(--color-secundario);
+    color: var(--color-texto);
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radio-borde);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    font-family: var(--fuente-principal);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    background-color: #ffbe33;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ============== HEADER Y NAVEGACIÓN ============== */
+.main-header {
+    background-color: var(--color-blanco);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--sombra-suave);
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--fuente-principal);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primario);
+    text-decoration: none;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--color-texto);
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-secundario);
+    transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after {
+    width: 100%;
+}
+
+/* ============== HERO SECTION ============== */
+#hero {
+    background: linear-gradient(rgba(0, 90, 156, 0.8), rgba(0, 90, 156, 0.8)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1351&q=80') no-repeat center center/cover;
+    color: var(--color-blanco);
+    padding: 120px 0;
+    text-align: center;
+}
+
+#hero h1 {
+    color: var(--color-blanco);
+    animation: fadeInDown 1s ease-out;
+}
+
+#hero .subtitle {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    animation: fadeInUp 1s ease-out 0.5s;
+    animation-fill-mode: backwards;
+}
+
+#hero .btn {
+    animation: fadeInUp 1s ease-out 1s;
+    animation-fill-mode: backwards;
+}
+
+/* ============== SECCIÓN CURSOS ============== */
+.cursos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.curso-card {
+    background-color: var(--color-blanco);
+    border-radius: var(--radio-borde);
+    box-shadow: var(--sombra-suave);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.curso-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.curso-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.curso-card-content {
+    padding: 25px;
+}
+
+.curso-card-content p {
+    margin-top: 10px;
+    font-size: 0.95rem;
+}
+
+/* ============== SECCIÓN QUIÉNES SOMOS ============== */
+.quienes-somos-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 1000px;
+    margin: 40px auto 0;
+}
+
+.quienes-somos-img {
+    flex: 1;
+    max-width: 400px;
+    border-radius: var(--radio-borde);
+}
+
+.quienes-somos-texto {
+    flex: 1.5;
+}
+
+.quienes-somos-texto h2 {
+    text-align: left;
+}
+
+/* ============== SECCIÓN BENEFICIOS ============== */
+.beneficios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.beneficio-card {
+    text-align: center;
+    padding: 20px;
+}
+
+.beneficio-icon {
+    font-size: 3rem;
+    color: var(--color-secundario);
+    margin-bottom: 15px;
+}
+
+/* ============== SECCIÓN CLIENTES ============== */
+#clientes h2 {
+    margin-bottom: 40px;
+}
+.clientes-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.cliente-logo {
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.cliente-logo:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* ============== SECCIÓN CONTACTO ============== */
+.contacto-form {
+    max-width: 700px;
+    margin: 40px auto 0;
+    background: var(--color-blanco);
+    padding: 40px;
+    border-radius: var(--radio-borde);
+    box-shadow: var(--sombra-suave);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: var(--radio-borde);
+    font-family: var(--fuente-secundaria);
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 2px rgba(0, 90, 156, 0.2);
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+/* ============== FOOTER ============== */
+.main-footer {
+    background-color: var(--color-texto);
+    color: var(--color-fondo);
+    padding: 50px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-social a {
+    color: var(--color-blanco);
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: var(--color-secundario);
+}
+
+.footer-copyright {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* ============== ANIMACIONES Y RESPONSIVIDAD ============== */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile-first: Media queries para tablets y desktops */
+@media (max-width: 768px) {
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.8rem; }
+    
+    .main-nav { display: none; } /* Simplificación para el ejemplo, se podría implementar un menú hamburguesa con JS */
+
+    .quienes-somos-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .quienes-somos-texto h2 {
+        text-align: center;
+    }
+}
