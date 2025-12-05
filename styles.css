@@ -41,6 +41,10 @@ section {
     padding: 80px 0;
 }
 
+#beneficios {
+    padding: 60px 0 80px 0;
+}
+
 section:nth-of-type(even) {
     background-color: var(--color-fondo);
 }
@@ -101,6 +105,14 @@ img {
     font-weight: 700;
     color: var(--color-primario);
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    height: 45px;
+    width: auto;
 }
 
 .main-nav ul {
@@ -217,6 +229,41 @@ img {
     text-align: left;
 }
 
+.modalidades-list {
+    margin: 20px 0;
+}
+
+.modalidad-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.modalidad-item i {
+    width: 28px;
+    height: 28px;
+    color: var(--color-secundario);
+    stroke-width: 2;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.modalidad-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.modalidad-item strong {
+    color: var(--color-primario);
+    font-size: 1.05rem;
+}
+
+.modalidad-item span {
+    color: #666;
+    font-size: 0.95rem;
+}
+
 /* ============== SECCIÓN BENEFICIOS ============== */
 .beneficios-grid {
     display: grid;
@@ -231,32 +278,47 @@ img {
 }
 
 .beneficio-icon {
-    font-size: 3rem;
-    color: var(--color-secundario);
     margin-bottom: 15px;
-}
-
-/* ============== SECCIÓN CLIENTES ============== */
-#clientes h2 {
-    margin-bottom: 40px;
-}
-.clientes-logos {
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 50px;
+    color: var(--color-secundario);
+    font-size: 64px;
 }
 
-.cliente-logo {
-    filter: grayscale(100%);
-    opacity: 0.7;
-    transition: filter 0.3s ease, opacity 0.3s ease;
+.beneficio-icon i {
+    width: 64px;
+    height: 64px;
+    stroke-width: 1.5;
+}
+/* ============== SECCIÓN ESTADÍSTICAS ============== */
+.estadisticas-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.cliente-logo:hover {
-    filter: grayscale(0%);
-    opacity: 1;
+.estadistica-card {
+    text-align: center;
+    padding: 20px 10px;
+}
+
+.estadistica-numero {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-secundario);
+    font-family: var(--fuente-principal);
+    margin-bottom: 8px;
+}
+
+.estadistica-card p {
+    font-size: 0.9rem;
+    color: var(--color-texto);
+    font-weight: 500;
 }
 
 /* ============== SECCIÓN CONTACTO ============== */
@@ -310,7 +372,7 @@ img {
 .main-footer {
     background-color: var(--color-texto);
     color: var(--color-fondo);
-    padding: 50px 0;
+    padding: 30px 0;
     text-align: center;
 }
 
@@ -318,25 +380,72 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 12px;
 }
 
-.footer-social a {
+.footer-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.footer-logo-img {
+    height: 35px;
+    width: auto;
+}
+
+.footer-contact {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 0.95rem;
+}
+
+.footer-contact a {
     color: var(--color-blanco);
-    font-size: 1.5rem;
-    margin: 0 10px;
-    transition: color 0.3s ease;
+    text-decoration: none;
 }
 
-.footer-social a:hover {
+.footer-contact a:hover {
     color: var(--color-secundario);
 }
 
-.footer-copyright {
-    margin-top: 20px;
-    font-size: 0.9rem;
-    opacity: 0.8;
+.footer-contact-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 }
+
+.footer-contact-item i {
+    width: 16px;
+    height: 16px;
+}
+
+.separator {
+    color: #666;
+}
+
+.footer-bottom {
+    font-size: 0.85rem;
+    color: #999;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-bottom a {
+    color: #999;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    color: var(--color-secundario);
+}
+
 
 /* ============== ANIMACIONES Y RESPONSIVIDAD ============== */
 @keyframes fadeInDown {
@@ -463,4 +572,230 @@ img {
 
 .modal-content .btn {
     margin-top: 20px;
+}
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    margin-top: -10px;
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+/* Contenedor del flip card */
+.flip-card {
+    background-color: transparent;
+    perspective: 1000px;
+    height: 450px;
+    cursor: pointer;
+}
+
+/* Contenedor interno que hace el flip */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+/* Clase que se agrega con JavaScript al hacer clic */
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Frente y reverso del card */
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: var(--radio-borde);
+    overflow: hidden;
+    box-shadow: var(--sombra-suave);
+}
+
+/* FRENTE del card */
+.flip-card-front {
+    background-color: var(--color-blanco);
+    display: flex;
+    flex-direction: column;
+}
+
+.flip-card-front img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.flip-card-content {
+    padding: 25px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.flip-card-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--color-primario);
+}
+
+.flip-card-content p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #666;
+    flex: 1;
+}
+
+.flip-hint {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: var(--color-secundario);
+    font-weight: 600;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* REVERSO del card */
+.flip-card-back {
+    background: linear-gradient(135deg, var(--color-primario) 0%, #003d6b 100%);
+    color: white;
+    transform: rotateY(180deg);
+    padding: 30px 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.flip-card-back h3 {
+    color: white;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.back-subtitle {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.courses-list {
+    list-style: none;
+    text-align: left;
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+    margin-bottom: 15px;
+}
+
+.courses-list li {
+    padding: 8px 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.courses-list li:last-child {
+    border-bottom: none;
+}
+
+/* Scrollbar personalizado para la lista de cursos */
+.courses-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.courses-list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.courses-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+.courses-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Botón de WhatsApp */
+.btn-whatsapp {
+    background-color: var(--color-secundario);
+    color: var(--color-texto);
+    padding: 12px 20px;
+    border-radius: var(--radio-borde);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease;
+    margin-top: auto;
+}
+
+.btn-whatsapp:hover {
+    background-color: #ffbe33;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Efecto hover en el card completo */
+.flip-card:hover {
+    transform: translateY(-5px);
+}
+
+.flip-card:hover .flip-card-front {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .flip-card {
+        height: 400px;
+    }
+    
+    .flip-card-content h3,
+    .flip-card-back h3 {
+        font-size: 1.1rem;
+    }
+    
+    .courses-list li {
+        font-size: 0.85rem;
+        padding: 6px 0;
+    }
+}
+
+/* ============== FAB WHATSAPP ============== */
+.whatsapp-fab {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.whatsapp-fab i {
+    width: 32px;
+    height: 32px;
+    color: white;
+    stroke-width: 2;
 }
