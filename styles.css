@@ -798,6 +798,32 @@ img {
     }
 }
 
+@media (max-width: 768px) {
+    .modalidad-item {
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .modalidad-item i {
+        width: 24px;
+        height: 24px;
+        margin-top: 0;
+        flex-shrink: 0;
+    }
+    
+    .modalidad-item div {
+        flex: 1;
+    }
+    
+    .modalidad-item strong {
+        font-size: 1rem;
+    }
+    
+    .modalidad-item span {
+        font-size: 0.9rem;
+    }
+}
+
 /* ============== FAB WHATSAPP ============== */
 .whatsapp-fab {
     position: fixed;
