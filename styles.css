@@ -852,3 +852,137 @@ img {
     color: white;
     stroke-width: 2;
 }
+
+/* ============== ESTILOS PARA VALIDACIÓN DE FORMULARIO ============== */
+
+/* Grupos de formulario con error */
+.form-group.error input,
+.form-group.error textarea,
+.form-group.error select {
+    border: 2px solid #e74c3c;
+    background-color: #ffebee;
+}
+
+.form-group.error input:focus,
+.form-group.error textarea:focus,
+.form-group.error select:focus {
+    outline: none;
+    border-color: #c0392b;
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+
+/* Grupos de formulario con éxito */
+.form-group.success input,
+.form-group.success textarea,
+.form-group.success select {
+    border: 2px solid #27ae60;
+    background-color: #eafaf1;
+}
+
+.form-group.success input:focus,
+.form-group.success textarea:focus,
+.form-group.success select:focus {
+    outline: none;
+    border-color: #229954;
+    box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1);
+}
+
+/* Mensaje de error */
+.error-message {
+    color: #e74c3c;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-weight: 500;
+}
+
+.error-message::before {
+    content: "⚠";
+    font-size: 1rem;
+}
+
+/* Animación para mensaje de error */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.form-group.error {
+    animation: shake 0.5s ease-in-out;
+}
+
+/* Estado de carga del botón */
+.btn-submit.loading {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+    position: relative;
+    pointer-events: none;
+}
+
+.btn-submit.loading::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    right: 20px;
+    margin-top: -8px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spinner 0.6s linear infinite;
+}
+
+@keyframes spinner {
+    to { transform: rotate(360deg); }
+}
+
+/* Transiciones suaves */
+.form-group input,
+.form-group textarea,
+.form-group select {
+    transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Mejora para dispositivos móviles */
+@media (max-width: 768px) {
+    .error-message {
+        font-size: 0.8125rem;
+    }
+}
+
+/* ============== ESTILOS ADICIONALES PARA MEJORAR LA EXPERIENCIA ============== */
+
+/* Indicador visual cuando el campo está siendo editado */
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* Placeholder mejorado */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #95a5a6;
+    opacity: 0.7;
+}
+
+/* Contador de caracteres opcional (si se implementa) */
+.char-counter {
+    text-align: right;
+    font-size: 0.8125rem;
+    color: #7f8c8d;
+    margin-top: 0.25rem;
+}
+
+.char-counter.warning {
+    color: #f39c12;
+}
+
+.char-counter.danger {
+    color: #e74c3c;
+}
